@@ -4,26 +4,15 @@
  */
 var maxDepth = function(s) {
     let count = 0;
-    let str = s.split("");
-    let arr = [];
-    let max=0;
+    let max = 0;
     
-    for(let st of str){
-        if(st == "(" || st == ")"){
-            arr.push(st)
-        }    
-    }
-    
-    for(let a of arr){
-        if(a == "("){
+    for(let ch of s){
+        if(ch == "("){
             count++;
-        } else {
+            if(count > max) max = count;
+        } else if(ch == ")"){
             count--;
-        }
-        
-        if(count > max) max = count;
-        
+        }   
     }
-    
     return max;
 };
