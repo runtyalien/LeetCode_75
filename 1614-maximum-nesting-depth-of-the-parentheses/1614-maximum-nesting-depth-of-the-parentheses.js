@@ -6,7 +6,7 @@ var maxDepth = function(s) {
     let count = 0;
     let str = s.split("");
     let arr = [];
-    let min=0,max=0;
+    let max=0;
     
     for(let st of str){
         if(st == "(" || st == ")"){
