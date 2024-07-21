@@ -3,17 +3,20 @@
  * @return {string}
  */
 var finalString = function(s) {
-    let return1 = "";
+    let result = [];
+    let isReversed = false;
     
-    let s2 = s.split('');
-    for(let a of s){
-        if(a !== 'i'){
-            return1 += a;
-        } else if(a === 'i'){
-           return1 = return1.split('').reverse().join('');
-            console.log(return1)
+    for(let ch of s){
+        if(ch === 'i'){
+            isReversed = !isReversed;
+        } else {
+            if(isReversed){
+                result.unshift(ch);
+            } else {
+                result.push(ch)
+            }
         }
     }
     
-    return return1;
+    return isReversed ? result.reverse().join('') : result.join('');
 };
